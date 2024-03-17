@@ -1,0 +1,11 @@
+regex
+nltk
+pandas
+numpy
+matplotlib
+spacy
+gensim
+scikit-learn
+scipy
+fasttext
+textacy

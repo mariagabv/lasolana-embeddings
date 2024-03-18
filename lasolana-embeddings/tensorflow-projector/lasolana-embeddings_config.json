@@ -1,0 +1,13 @@
+{
+  "embeddings": [
+    {
+      "tensorName": "lasolana-embeddings",
+      "tensorShape": [
+        29682,
+        150
+      ],
+      "tensorPath": "https://raw.githubusercontent.com/mariagabv/lasolana-embeddings/main/lasolana-embeddings/tensorflow-projector/tensors.tsv",
+      "metadataPath": "https://github.com/mariagabv/lasolana-embeddings/blob/main/lasolana-embeddings/tensorflow-projector/metadata.tsv"
+    }
+  ]
+}

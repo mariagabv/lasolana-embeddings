@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>preprocessing</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>preprocessing_EDA</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7503,7 +7503,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d032790f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7ad56dbb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7515,7 +7515,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e00f8c6e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7ac65d7c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7566,7 +7566,14 @@ a.anchor-link {
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="kn">from</span> <span class="nn">utils_preprocessing</span> <span class="kn">import</span> <span class="n">preprocess_sentences</span><span class="p">,</span> <span class="n">interleave_lists</span><span class="p">,</span> <span class="n">get_stats</span><span class="p">,</span> <span class="n">sentences_into_flat_tokens</span><span class="p">,</span> <span class="n">get_advanced_tokens</span><span class="p">,</span> <span class="n">plot_custom_boxplot</span>
+<span class="kn">from</span> <span class="nn">utils_preprocessing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">preprocess_sentences</span><span class="p">,</span>
+    <span class="n">interleave_lists</span><span class="p">,</span>
+    <span class="n">get_stats</span><span class="p">,</span>
+    <span class="n">sentences_into_flat_tokens</span><span class="p">,</span>
+    <span class="n">get_advanced_tokens</span><span class="p">,</span>
+    <span class="n">plot_custom_boxplot</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7629,7 +7636,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'all_gacetas.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"all_gacetas.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">gacetas</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -7655,7 +7662,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">'.*\w-\n'</span><span class="p">,</span> <span class="n">gacetas</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">".*\w-\n"</span><span class="p">,</span> <span class="n">gacetas</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -7683,16 +7690,16 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">replaced_hyphen</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'(\w)-\n+'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'\1'</span><span class="p">,</span> <span class="n">gacetas</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">replaced_hyphen</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(\w)-\n+"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\1"</span><span class="p">,</span> <span class="n">gacetas</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 <span class="c1"># remove sentences 'Biblioteca Virtual (...)</span>
-<span class="n">matches_publicado</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'biblioteca virtual.*\n'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="n">replaced_hyphen</span><span class="p">)</span>
+<span class="n">matches_publicado</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"biblioteca virtual.*\n"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">replaced_hyphen</span><span class="p">)</span>
 <span class="c1"># remove unnecessary spaces.</span>
-<span class="n">gacetas_stripped</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\n+|\s+|\t+'</span><span class="p">,</span> <span class="s1">' '</span><span class="p">,</span> <span class="n">matches_publicado</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">gacetas_stripped</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\n+|\s+|\t+"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span> <span class="n">matches_publicado</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 <span class="c1"># remove all hyphen but those between characters, as in 'garcía-abadillo'</span>
-<span class="n">surname_hyphen</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'(?&lt;!\w)-(?!\w)'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="n">gacetas_stripped</span><span class="p">)</span>
-<span class="n">other_hyphen</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'-\s|\s-'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="n">surname_hyphen</span><span class="p">)</span>
+<span class="n">surname_hyphen</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(?&lt;!\w)-(?!\w)"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">gacetas_stripped</span><span class="p">)</span>
+<span class="n">other_hyphen</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"-\s|\s-"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">surname_hyphen</span><span class="p">)</span>
 <span class="c1"># remove noisy sentences, often a bad conversion of ads</span>
-<span class="n">ad_remove</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'[~•·].*?\.'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="n">other_hyphen</span><span class="p">)</span>
+<span class="n">ad_remove</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"[~•·].*?\."</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">other_hyphen</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7731,7 +7738,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Next, we tokenize the data into sentences, as sentences is what the librarty <code>fasttext</code> is expecting as an input for training word embeddings. We prepared our own list of symbols and replaced all numbers by the token <code>[NUM]</code></p>
+<p>Next, we tokenize the data into sentences, as sentences is what the librarty <code>fasttext</code> is expecting as an input for training word embeddings. We prepared our own list of symbols and replaced all numbers by the token <code>[NUM]</code>.</p>
 </div>
 </div>
 </div>
@@ -7768,7 +7775,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [56]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">156508</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">156508</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sentences_gaceta</span><span class="p">[</span><span class="n">num</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -7807,10 +7814,10 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#file_path = "all_gacetas_preprocessed.txt"</span>
-<span class="c1">#with open(file_path, "w", encoding='utf-8') as file:</span>
-    <span class="c1">#for sentence in sentences_gace:</span>
-        <span class="c1">#file.write(sentence + "\n")</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># file_path = "all_gacetas_preprocessed.txt"</span>
+<span class="c1"># with open(file_path, "w", encoding='utf-8') as file:</span>
+<span class="c1"># for sentence in sentences_gace:</span>
+<span class="c1"># file.write(sentence + "\n")</span>
 </pre></div>
 </div>
 </div>
@@ -7878,7 +7885,7 @@ Percentile 50, length: 184.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">gacetas_tokens_list</span><span class="p">,</span> <span class="n">gacetas_tokens_flat</span>  <span class="o">=</span> <span class="n">sentences_into_flat_tokens</span><span class="p">(</span><span class="n">sentences_gaceta</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">gacetas_tokens_list</span><span class="p">,</span> <span class="n">gacetas_tokens_flat</span> <span class="o">=</span> <span class="n">sentences_into_flat_tokens</span><span class="p">(</span><span class="n">sentences_gaceta</span><span class="p">)</span>
 <span class="n">gaceta_tokens_stats</span> <span class="o">=</span> <span class="n">get_advanced_tokens</span><span class="p">(</span><span class="n">gacetas_tokens_list</span><span class="p">,</span> <span class="n">gacetas_tokens_flat</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7922,8 +7929,8 @@ Percentile 75, length: 31.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">gaceta_data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">gacetas_tokens_list</span><span class="p">]</span> 
-<span class="n">plot_custom_boxplot</span><span class="p">(</span><span class="n">gaceta_data</span><span class="p">,</span> <span class="s1">'Gaceta'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">gaceta_data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">gacetas_tokens_list</span><span class="p">]</span>
+<span class="n">plot_custom_boxplot</span><span class="p">(</span><span class="n">gaceta_data</span><span class="p">,</span> <span class="s2">"Gaceta"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7982,7 +7989,7 @@ Percentile 75, length: 31.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'lasolana_dataset.csv'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"lasolana_dataset.csv"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7996,8 +8003,8 @@ Percentile 75, length: 31.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">titles</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">'Title'</span><span class="p">]</span>
-<span class="n">text</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">'Text'</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">titles</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s2">"Title"</span><span class="p">]</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s2">"Text"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -8051,7 +8058,7 @@ Percentile 75, length: 31.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">concatenated_string</span> <span class="o">=</span> <span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result_list</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">concatenated_string</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result_list</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -8064,7 +8071,7 @@ Percentile 75, length: 31.0
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Finally, the punctuation is removed and the numbers are replaced with the number token.</p>
+<p>The punctuation is removed and the numbers are replaced with the number token.</p>
 </div>
 </div>
 </div>
@@ -8090,7 +8097,7 @@ Percentile 75, length: 31.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sentences_articles</span><span class="p">[</span><span class="n">num</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -8129,9 +8136,9 @@ Percentile 75, length: 31.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#txt = '\n'.join(sentences)</span>
-<span class="c1">#with open('articles.txt', 'w', encoding='utf-8') as file:</span>
-    <span class="c1">#file.write(txt)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># txt = '\n'.join(sentences)</span>
+<span class="c1"># with open('articles.txt', 'w', encoding='utf-8') as file:</span>
+<span class="c1"># file.write(txt)</span>
 </pre></div>
 </div>
 </div>
@@ -8199,7 +8206,9 @@ Percentile 50, length: 196.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">articles_tokens_list</span><span class="p">,</span> <span class="n">articles_tokens_flat</span>  <span class="o">=</span> <span class="n">sentences_into_flat_tokens</span><span class="p">(</span><span class="n">sentences_articles</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">articles_tokens_list</span><span class="p">,</span> <span class="n">articles_tokens_flat</span> <span class="o">=</span> <span class="n">sentences_into_flat_tokens</span><span class="p">(</span>
+    <span class="n">sentences_articles</span>
+<span class="p">)</span>
 <span class="n">articles_tokens_stats</span> <span class="o">=</span> <span class="n">get_advanced_tokens</span><span class="p">(</span><span class="n">articles_tokens_list</span><span class="p">,</span> <span class="n">articles_tokens_flat</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -8231,7 +8240,7 @@ Percentile 75, length: 33.0
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The graph below visually represents the length of tokens in each sentence of the collected news articles. It is observed that 50% of the sentences have around 25 tokens or less, while the other half exceed 50. This subcorpus presents fewer outliers with shorter token lengths, but they will be also analyzed in the whole corpus post-processing.</p>
+<p>The graphic below visually represents the length of tokens in each sentence of the collected news articles. It is observed that 50% of the sentences have around 25 tokens or less, while the other half exceed 50. This subcorpus presents fewer outliers with shorter token lengths, but they will be also analyzed in the whole corpus post-processing.</p>
 </div>
 </div>
 </div>
@@ -8243,8 +8252,8 @@ Percentile 75, length: 33.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">articles_data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">articles_tokens_list</span><span class="p">]</span> 
-<span class="n">plot_custom_boxplot</span><span class="p">(</span><span class="n">articles_data</span><span class="p">,</span> <span class="s1">'Articles'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">articles_data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">articles_tokens_list</span><span class="p">]</span>
+<span class="n">plot_custom_boxplot</span><span class="p">(</span><span class="n">articles_data</span><span class="p">,</span> <span class="s2">"Articles"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8320,8 +8329,8 @@ Percentile 75, length: 33.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"blogsimón_raw"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">txt</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"blogsimón_raw"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">txt</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -8336,16 +8345,22 @@ Percentile 75, length: 33.0
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Remove blogspot markdown</span>
-<span class="n">matches_publicado</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'Publicado.*\n'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-<span class="n">matches_comentario</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\d Añadir un comentario|\d Ver comentarios'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="n">matches_publicado</span><span class="p">)</span>
-<span class="n">matches_day</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\d\n'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="n">matches_comentario</span><span class="p">)</span>
-<span class="n">matches_month</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'MAY|APR|JUN|JUL|SEP|NOV|AUG|OCT|JAN|DEC|FEB|MAR\n'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="n">matches_day</span><span class="p">)</span>
+<span class="n">matches_publicado</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Publicado.*\n"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">matches_comentario</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s2">"\d Añadir un comentario|\d Ver comentarios"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">matches_publicado</span>
+<span class="p">)</span>
+<span class="n">matches_day</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\d\n"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">matches_comentario</span><span class="p">)</span>
+<span class="n">matches_month</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s2">"MAY|APR|JUN|JUL|SEP|NOV|AUG|OCT|JAN|DEC|FEB|MAR\n"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">matches_day</span>
+<span class="p">)</span>
 
 <span class="c1"># Remove unexpected 2 at the beginning of some sentences</span>
-<span class="n">dos_word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'(?&lt;!\S)2'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="n">matches_month</span><span class="p">)</span> <span class="c1">#matches the character "2" only if it's at the beginning of a line or preceded by whitespace</span>
+<span class="n">dos_word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s2">"(?&lt;!\S)2"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">matches_month</span>
+<span class="p">)</span>  <span class="c1"># matches the character "2" only if it's at the beginning of a line or preceded by whitespace</span>
 
 <span class="c1"># Remove extra whitespaces</span>
-<span class="n">text_stripped</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\n+|\s+'</span><span class="p">,</span> <span class="s1">' '</span><span class="p">,</span> <span class="n">dos_word</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">text_stripped</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\n+|\s+"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span> <span class="n">dos_word</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 <span class="n">data_processed</span> <span class="o">=</span> <span class="n">text_stripped</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -8374,7 +8389,7 @@ Percentile 75, length: 33.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sentences_blogspot</span><span class="p">[</span><span class="n">num</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -8402,11 +8417,11 @@ Percentile 75, length: 33.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#file_path = "blogspot_preprocess.txt"</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># file_path = "blogspot_preprocess.txt"</span>
 
-<span class="c1">#with open(file_path, "w", encoding='utf-8') as file:</span>
-    <span class="c1">#for sentence in sentences:</span>
-        <span class="c1">#file.write(sentence + "\n")</span>
+<span class="c1"># with open(file_path, "w", encoding='utf-8') as file:</span>
+<span class="c1"># for sentence in sentences:</span>
+<span class="c1"># file.write(sentence + "\n")</span>
 </pre></div>
 </div>
 </div>
@@ -8474,7 +8489,9 @@ Percentile 50, length: 267.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">blogspot_tokens_list</span><span class="p">,</span> <span class="n">blogspot_tokens_flat</span>  <span class="o">=</span> <span class="n">sentences_into_flat_tokens</span><span class="p">(</span><span class="n">sentences_blogspot</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">blogspot_tokens_list</span><span class="p">,</span> <span class="n">blogspot_tokens_flat</span> <span class="o">=</span> <span class="n">sentences_into_flat_tokens</span><span class="p">(</span>
+    <span class="n">sentences_blogspot</span>
+<span class="p">)</span>
 <span class="n">blogspot_tokens_stats</span> <span class="o">=</span> <span class="n">get_advanced_tokens</span><span class="p">(</span><span class="n">blogspot_tokens_list</span><span class="p">,</span> <span class="n">blogspot_tokens_flat</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -8518,8 +8535,8 @@ Percentile 75, length: 49.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">blogspot_data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">blogspot_tokens_list</span><span class="p">]</span> 
-<span class="n">plot_custom_boxplot</span><span class="p">(</span><span class="n">blogspot_data</span><span class="p">,</span> <span class="s1">'Blogspot'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">blogspot_data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">blogspot_tokens_list</span><span class="p">]</span>
+<span class="n">plot_custom_boxplot</span><span class="p">(</span><span class="n">blogspot_data</span><span class="p">,</span> <span class="s2">"Blogspot"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8579,8 +8596,8 @@ Percentile 75, length: 49.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"legado_raw.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">txt</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"legado_raw.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">txt</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -8595,8 +8612,8 @@ Percentile 75, length: 49.0
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="n">matches_publicado</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'biblioteca virtual.*\n'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-<span class="n">text_stripped</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\n+|\s+'</span><span class="p">,</span> <span class="s1">' '</span><span class="p">,</span> <span class="n">matches_publicado</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">matches_publicado</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"biblioteca virtual.*\n"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">text_stripped</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\n+|\s+"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span> <span class="n">matches_publicado</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -8624,7 +8641,7 @@ Percentile 75, length: 49.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [70]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sentences_book</span><span class="p">[</span><span class="n">num</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -8663,9 +8680,9 @@ Percentile 75, length: 49.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#txt = '\n'.join(sentences)</span>
-<span class="c1">#with open('book.txt', 'w', encoding='utf-8') as file:</span>
-    <span class="c1">#file.write(txt)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># txt = '\n'.join(sentences)</span>
+<span class="c1"># with open('book.txt', 'w', encoding='utf-8') as file:</span>
+<span class="c1"># file.write(txt)</span>
 </pre></div>
 </div>
 </div>
@@ -8777,8 +8794,8 @@ Percentile 75, length: 50.0
 <div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">bustillo_data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">bustillo_tokens_list</span><span class="p">]</span> 
-<span class="n">plot_custom_boxplot</span><span class="p">(</span><span class="n">bustillo_data</span><span class="p">,</span> <span class="s1">'Legado Bustillo Book'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">bustillo_data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">bustillo_tokens_list</span><span class="p">]</span>
+<span class="n">plot_custom_boxplot</span><span class="p">(</span><span class="n">bustillo_data</span><span class="p">,</span> <span class="s2">"Legado Bustillo Book"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8868,7 +8885,7 @@ garcía<span class="w"> </span>maroto,garcía_maroto
 el<span class="w"> </span>humilladero,el_humilladero
 javier<span class="w"> </span>paulino,javier_paulino
 romero<span class="w"> </span>peña,romero_peña
-ederico<span class="w"> </span>romero,ederico_romero
+federico<span class="w"> </span>romero,federico_romero
 sagrado<span class="w"> </span>corazón,sagrado_corazón
 el<span class="w"> </span>santo,el_santo
 modesto<span class="w"> </span>navarro,modesto_navarro
@@ -8890,8 +8907,8 @@ semana<span class="w"> </span>santa,semana_santa
 <div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"corpus.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">txt</span><span class="p">:</span>
-    <span class="n">corpus</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"corpus.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">txt</span><span class="p">:</span>
+    <span class="n">corpus</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -8917,22 +8934,22 @@ semana<span class="w"> </span>santa,semana_santa
 <div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#sentence_lengths = [len(sentence) for sentence in corpus_tokens_list]</span>
-<span class="c1">#max_idx = np.argmax(sentence_lengths)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># sentence_lengths = [len(sentence) for sentence in corpus_tokens_list]</span>
+<span class="c1"># max_idx = np.argmax(sentence_lengths)</span>
 
-<span class="c1">#max_idxs = np.argsort(sentence_lengths)[::-1][:30]</span>
-<span class="c1">#longest_sentences = ''</span>
-<span class="c1">#for idx in max_idxs:</span>
-    <span class="c1">#print(f"spam longest sentence index: {idx}\n{corpus[idx]}")</span>
-    <span class="c1">#print()</span>
-    <span class="c1">#print('---------------------------------------------------')</span>
-    <span class="c1">#print()</span>
+<span class="c1"># max_idxs = np.argsort(sentence_lengths)[::-1][:30]</span>
+<span class="c1"># longest_sentences = ''</span>
+<span class="c1"># for idx in max_idxs:</span>
+<span class="c1"># print(f"spam longest sentence index: {idx}\n{corpus[idx]}")</span>
+<span class="c1"># print()</span>
+<span class="c1"># print('---------------------------------------------------')</span>
+<span class="c1"># print()</span>
 
-<span class="c1">#x = corpus[117462]</span>
-<span class="c1">#y = corpus[117463]</span>
-<span class="c1">#z =x + y</span>
-<span class="c1">#no_x07 = re.sub(r'\s?\x07\s?', '', z)</span>
-<span class="c1">#no_hyphen = re.sub(r'–', '.', no_x07)</span>
+<span class="c1"># x = corpus[117462]</span>
+<span class="c1"># y = corpus[117463]</span>
+<span class="c1"># z =x + y</span>
+<span class="c1"># no_x07 = re.sub(r'\s?\x07\s?', '', z)</span>
+<span class="c1"># no_hyphen = re.sub(r'–', '.', no_x07)</span>
 </pre></div>
 </div>
 </div>
@@ -9045,7 +9062,7 @@ Percentile 75, length: 31.0
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">corpus_data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">corpus_tokens_list</span><span class="p">]</span>
-<span class="n">plot_custom_boxplot</span><span class="p">(</span><span class="n">corpus_data</span><span class="p">,</span> <span class="s1">'Whole Corpus'</span><span class="p">)</span>
+<span class="n">plot_custom_boxplot</span><span class="p">(</span><span class="n">corpus_data</span><span class="p">,</span> <span class="s2">"Whole Corpus"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

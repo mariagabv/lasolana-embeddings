@@ -4,8 +4,9 @@ pandas
 numpy
 matplotlib
 spacy
-gensim
-scikit-learn
+sklearn
 scipy
 fasttext
 textacy
+scipy
+seaborn

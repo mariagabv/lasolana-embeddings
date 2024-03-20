@@ -31,7 +31,7 @@ Preprocessing: Explained in [training_eval](https://github.com/mariagabv/lasolan
 
 ## Algorithm
 [Implementation](https://github.com/mariagabv/lasolana-embeddings/blob/main/training_eval/train_eval.ipynb): FastText with Skipgram and no sub-words
-Parameters:
+Parameters.
 - min subword-ngram = 0
 - max subword-ngram = 0
 - neg = 5

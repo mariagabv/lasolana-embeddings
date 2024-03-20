@@ -14,9 +14,9 @@ Summary and links for lasolana-embeddings:
 ## La Solana FastText embeddings
 Links to the embeddings (#dimensions=150, #vectors=29,682):
 
-[Vector format](https://github.com/mariagabv/lasolana-embeddings/blob/main/lasolana-embeddings/lasolana_embeddings.vec) (.vec) (34.5 MB)
-[Binary format](https://github.com/mariagabv/lasolana-embeddings/blob/main/lasolana-embeddings/lasolana_embeddings.bin) (.bin) (34.5 MB)
-[TSV format](https://github.com/mariagabv/lasolana-embeddings/blob/main/lasolana-embeddings/lasolana_embeddings.tsv) (.tsv) (49.5 MB)
+- [Vector format](https://github.com/mariagabv/lasolana-embeddings/blob/main/lasolana-embeddings/lasolana_embeddings.vec) (.vec) (34.5 MB)
+- [Binary format](https://github.com/mariagabv/lasolana-embeddings/blob/main/lasolana-embeddings/lasolana_embeddings.bin) (.bin) (34.5 MB)
+- [TSV format](https://github.com/mariagabv/lasolana-embeddings/blob/main/lasolana-embeddings/lasolana_embeddings.tsv) (.tsv) (49.5 MB)
 
 ## Corpus
 All digitized corpus about La Solana that we have access to:
@@ -25,19 +25,17 @@ All digitized corpus about La Solana that we have access to:
 - [Julián Simón's blog](https://joaquincostalasolanalegadobustillo.blogspot.com/)
 - [García Gallego, José María. El legado Bustillo de La Solana: su fundación, visicitudes, intervención de Costa, asesinato del cura Torrijos, situación actual.(1935)
 ](https://ceclmdigital.uclm.es/results.vm?q=id:0000330120&lang=es&view=libros)
-- 
+  
 Corpus Size: over 4 million words
 Preprocessing: Explained in [training_eval](https://github.com/mariagabv/lasolana-embeddings/blob/main/training_eval/train_eval.ipynb) notebook.
 
 ## Algorithm
 [Implementation](https://github.com/mariagabv/lasolana-embeddings/blob/main/training_eval/train_eval.ipynb): FastText with Skipgram and no sub-words
 Parameters:
-min subword-ngram = 0
-max subword-ngram = 0
-neg = 5
-ws = 5
-epochs = 5
-dim = 150
-all other parameters set as default
-
-
+- min subword-ngram = 0
+- max subword-ngram = 0
+- neg = 5
+- ws = 5
+- epochs = 5
+- dim = 150
+- all other parameters set as default

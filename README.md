@@ -23,7 +23,7 @@ All digitized corpus about La Solana that we have access to:
 - [Gaceta de La Solana](https://www.lasolana.es/ayuntamiento/radio-horizonte/la-gaceta) until december 2023
 - [Noticias de La Solana](https://www.lasolana.es/laciudad/noticias)
 - [Julián Simón's blog](https://joaquincostalasolanalegadobustillo.blogspot.com/)
-- [García Gallego, José María. El legado Bustillo de La Solana: su fundación, visicitudes, intervención de Costa, asesinato del cura Torrijos, situación actual.(1935)
+- [García Gallego, José María. El legado Bustillo de La Solana: su fundación, visicitudes, intervención de Costa, asesinato del cura Torrijos, situación actual. (1935)
 ](https://ceclmdigital.uclm.es/results.vm?q=id:0000330120&lang=es&view=libros)
   
 Corpus Size: over 4 million words
